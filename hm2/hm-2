@@ -1,4 +1,4 @@
 1. Run jenkins.
 2. Integrate with your repository.
-3. Make job for building Dockerfile and deploying docker-compose.
+3. Make job for building Dockerfile.
 
