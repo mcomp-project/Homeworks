@@ -24,8 +24,7 @@ pipeline{
         stage("Second step: Deploy") {
             steps{
                 echo "========Running image started========"
-                {
-                    sh 'docker run --rm homework2:v0.1 '
+                {sh 'docker run --rm homework2:v0.1 '
                 echo "========Running image finished========"
                 }
             }
