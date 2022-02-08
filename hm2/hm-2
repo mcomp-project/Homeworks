@@ -1,4 +1,3 @@
 1. Run jenkins.
 2. Integrate with your repository.
-3. Make job for building Dockerfile.
-
+3. Make job for building Dockerfile and deploying(In my case I will run container on my local machine).
