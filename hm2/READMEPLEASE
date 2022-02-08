@@ -1,5 +1,5 @@
-        Bro, I`ve made everything properly but my EC2 machine from AWS just can`t survive only 1 docker build with python3-image. Now I start to understand those guys who hate Bezos:) 
-                              Here you will find console output from my localhost jenkins:
+        Bro, I`ve made everything properly but my free EC2 machine from AWS just can`t survive only 1 docker build with python3-image. Now I start to understand those guys who hate Bezos:) 
+                         Because of that I used jenkins on localhost. Here you will find console output from my localhost jenkins:
 Started by user admin
 Obtained hm2/jenkins/Jenkinsfile from git https://github.com/mcomp-project/Homeworks.git
 [Pipeline] Start of Pipeline
