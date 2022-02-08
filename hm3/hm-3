@@ -1,0 +1,7 @@
+1. Create a pipeline.
+2. Make jobs:   a)Тянуть Имедж
+		б) Перетег Имедж
+		в) Пуш имедж
+3. Запушить докер композ.
+4. Create Webhook on repository. On merge there has to be webhook examination.
+5. Read something about ngrock.	
