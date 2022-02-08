@@ -1,2 +1,110 @@
-Bro, I`ve made everything properly but my EC2 machine from AWS just can`t survive only 1 docker build with python3-image. Now I start to understand those guys who hate Bezos:)
-I`ve created another "Test" repository where jenkins runs pipe with hello world docker, everything worked.
+        Bro, I`ve made everything properly but my EC2 machine from AWS just can`t survive only 1 docker build with python3-image. Now I start to understand those guys who hate Bezos:) 
+                              Here you will find console output from my localhost jenkins:
+Started by user admin
+Obtained hm2/jenkins/Jenkinsfile from git https://github.com/mcomp-project/Homeworks.git
+[Pipeline] Start of Pipeline
+[Pipeline] properties
+[Pipeline] node
+Running on Jenkins in /var/lib/jenkins/workspace/2
+[Pipeline] {
+[Pipeline] stage
+[Pipeline] { (Declarative: Checkout SCM)
+[Pipeline] checkout
+Selected Git installation does not exist. Using Default
+The recommended git tool is: NONE
+No credentials specified
+Cloning the remote Git repository
+Cloning repository https://github.com/mcomp-project/Homeworks.git
+ > git init /var/lib/jenkins/workspace/2 # timeout=10
+Fetching upstream changes from https://github.com/mcomp-project/Homeworks.git
+ > git --version # timeout=10
+ > git --version # 'git version 2.32.0'
+ > git fetch --tags --force --progress -- https://github.com/mcomp-project/Homeworks.git +refs/heads/*:refs/remotes/origin/* # timeout=10
+ > git config remote.origin.url https://github.com/mcomp-project/Homeworks.git # timeout=10
+ > git config --add remote.origin.fetch +refs/heads/*:refs/remotes/origin/* # timeout=10
+Avoid second fetch
+ > git rev-parse refs/remotes/origin/master^{commit} # timeout=10
+Checking out Revision f7a12e7dc97cbd05f343c2a288e8acdafdf0417a (refs/remotes/origin/master)
+ > git config core.sparsecheckout # timeout=10
+ > git checkout -f f7a12e7dc97cbd05f343c2a288e8acdafdf0417a # timeout=10
+Commit message: "Update Jenkinsfile"
+First time build. Skipping changelog.
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] withEnv
+[Pipeline] {
+[Pipeline] timestamps
+[Pipeline] {
+[Pipeline] stage
+[Pipeline] { (First step: Build)
+[Pipeline] echo
+14:55:27  ========Building image started========
+[Pipeline] dir
+14:55:27  Running in /var/lib/jenkins/workspace/2/hm2/docker
+[Pipeline] {
+[Pipeline] sh
+14:55:28  + docker build -t homework2:v0.1 .
+14:55:28  Sending build context to Docker daemon  3.584kB
+
+14:55:28  Step 1/8 : FROM python:3.10
+14:55:28   ---> e2e732b7951f
+14:55:28  Step 2/8 : RUN mkdir /work
+14:55:28   ---> Using cache
+14:55:28   ---> 210d2ee4dbc7
+14:55:28  Step 3/8 : COPY . /work
+14:55:28   ---> Using cache
+14:55:28   ---> b14e69f9211b
+14:55:28  Step 4/8 : WORKDIR /work
+14:55:28   ---> Using cache
+14:55:28   ---> dc9fe0ce4522
+14:55:28  Step 5/8 : RUN pip install --upgrade pip
+14:55:28   ---> Using cache
+14:55:28   ---> 966996331ec0
+14:55:28  Step 6/8 : RUN pip install numpy
+14:55:28   ---> Using cache
+14:55:28   ---> 66a3f9b9b955
+14:55:28  Step 7/8 : ENTRYPOINT ["python","main.py"]
+14:55:28   ---> Using cache
+14:55:28   ---> 77f49e2e7800
+14:55:28  Step 8/8 : CMD ["cat","main.py"]
+14:55:28   ---> Using cache
+14:55:28   ---> 99ae36266499
+14:55:28  Successfully built 99ae36266499
+14:55:28  Successfully tagged homework2:v0.1
+[Pipeline] echo
+14:55:29  ========Building image finished========
+[Pipeline] }
+[Pipeline] // dir
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Second step: Deploy)
+[Pipeline] echo
+14:55:30  ========Running image started========
+[Pipeline] dir
+14:55:30  Running in /var/lib/jenkins/workspace/2/hm2/docker
+[Pipeline] {
+[Pipeline] sh
+14:55:30  + docker run --rm homework2:v0.1
+14:55:36  
+14:55:36  The matrix:
+14:55:36  [[ 7  1  7  6]
+14:55:36   [10  3  8  9]
+14:55:36   [ 1  1  9  3]
+14:55:36   [ 2  3  9  8]]
+14:55:36  Sum of columns:[20, 8, 33, 26]
+14:55:36  Sum of rows:[21, 30, 14, 22]
+[Pipeline] echo
+14:55:38  ========Running image finished========
+[Pipeline] }
+[Pipeline] // dir
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] }
+[Pipeline] // timestamps
+[Pipeline] }
+[Pipeline] // withEnv
+[Pipeline] }
+[Pipeline] // node
+[Pipeline] End of Pipeline
+Finished: SUCCESS
