@@ -11,11 +11,22 @@ pipeline{
         timestamps()
     }
     stages {
-        stage("First step") {
-            steps{
+        stage("First step: Build") {
+            steps{//Using dockerfile from homework1
                 echo "========Building image started========"
                 dir('hm2/docker'){
-                    sh 'docker build . '
+                    sh 'docker build -t homework2:v0.1 . '
+                echo "========Building image finished========"
+                }
+            }
+
+        }
+        stage("Second step: Deploy") {
+            steps{
+                echo "========Running image started========"
+                {
+                    sh 'docker run --rm homework2:v0.1 '
+                echo "========Running image finished========"
                 }
             }
 
