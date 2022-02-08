@@ -1,2 +1,2 @@
-Bro, I`ve made everything properly but my EC2 machine from AWS just can`t survive only 1 docker build with python3-image. Now I`m starting understand those guys who hate Bezos:)
-I`ve created another "Test" repository where jenkins runs pipe with hello world docker, everything worked. I need one more day to get money for AWS paid machine.
+Bro, I`ve made everything properly but my EC2 machine from AWS just can`t survive only 1 docker build with python3-image. Now I start to understand those guys who hate Bezos:)
+I`ve created another "Test" repository where jenkins runs pipe with hello world docker, everything worked.
